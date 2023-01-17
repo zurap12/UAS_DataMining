@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Churn Class Prediction</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+    <div class="container contact-form">
+        <form action="{{ url_for('predict')}}" method="post">
+            <h3>Churn Class Prediction</h3>
+            <div class="col-md-6">
+                <h5>Geography value : France = 0, Germany = 1, Spain = 2</h5>
+            </div>
+            <div class="col-md-6">
+                <h5>Male = 1, Female = 0</h5>
+            </div>
+            <div class="col-md-6">
+                <h5>Pada surname masukkan saja angka</h5>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" name="CustomerId" class="form-control" placeholder="CustomerId"
+                            required="required" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="Surname" class="form-control" placeholder="Surname"
+                            required="required" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="CreditScore" class="form-control" placeholder="CreditScore"
+                            required="required" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="Geography" class="form-control" placeholder="Geography"
+                            required="required" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="Gender" class="form-control" placeholder="Gender"
+                            required="required" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="Age" class="form-control" placeholder="Age" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="Tenure" class="form-control" placeholder="Tenure"
+                            required="required" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="Balance" class="form-control" placeholder="Balance"
+                            required="required" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="NumOfProducts" class="form-control" placeholder="NumOfProducts"
+                            required="required" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="HasCrCard" class="form-control" placeholder="HasCrCard"
+                            required="required" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="IsActiveMember" class="form-control" placeholder="IsActiveMember"
+                            required="required" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="EstimatedSalary" class="form-control" placeholder="EstimatedSalary"
+                            required="required" />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block btn-large">
+                        Predict
+                    </button>
+                </div>
+                <div class="col-md-6">
+                    <h3>
+                        Hasil Prediksi : <br />
+                        {{ prediction_text }}
+                        <br />
+                        1 = Churn
+                        0 = not churn
+                    </h3>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+
+</html>
